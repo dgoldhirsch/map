@@ -1,0 +1,13 @@
+<p>
+  <b>Note:</b>
+  <%=h @comment.note_id %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%=h @comment.details %>
+</p>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>
