@@ -1,0 +1,16 @@
+  [4;36;1mNote Delete all (0.4ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;36;1mNote Delete all (0.4ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;36;1mNote Delete all (0.4ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;36;1mNote Delete all (0.5ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;36;1mNote Delete all (0.4ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.3ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at") VALUES('One', '2010-03-11 19:51:48', '2010-03-11 19:51:48')[0m
+  [4;36;1mNote Delete all (0.4ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.3ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-11 19:53:45', '2010-03-11 19:53:45', 1)[0m
+  [4;36;1mNote Delete all (0.5ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.2ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-11 19:54:52', '2010-03-11 19:54:52', 1)[0m
+  [4;36;1mNote Delete all (0.4ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.3ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-11 20:05:32', '2010-03-11 20:05:32', 1)[0m
+  [4;36;1mNote Delete all (0.4ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.2ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-11 20:19:25', '2010-03-11 20:19:25', '1')[0m
+  [4;36;1mNote Delete all (0.4ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.2ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-11 20:20:15', '2010-03-11 20:20:15', '1')[0m
