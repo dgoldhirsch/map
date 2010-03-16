@@ -166,3 +166,51 @@
   [4;35;1mComment Create (0.1ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('3', '2010-03-11 21:42:32', 'Second comment about One', '2010-03-11 21:42:32')[0m
   [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '3') [0m
   [4;35;1mComment Load (0.7ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;36;1mNote Delete all (0.5ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.2ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-13 01:23:21', '2010-03-13 01:23:21', '1')[0m
+  [4;36;1mNote Delete all (0.2ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mComment Delete all (0.1ms)[0m   [0mDELETE FROM "comments" WHERE 1=1[0m
+  [4;36;1mNote Create (0.1ms)[0m   [0;1mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-13 01:23:22', '2010-03-13 01:23:22', '2')[0m
+  [4;35;1mComment Create (0.2ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('2', '2010-03-13 01:23:22', 'First comment about One', '2010-03-13 01:23:22')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '2') [0m
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '2') [0m
+  [4;36;1mNote Load (0.4ms)[0m   [0;1mSELECT * FROM "notes" WHERE ("notes"."id" = '2') [0m
+  [4;35;1mNote Delete all (0.2ms)[0m   [0mDELETE FROM "notes" WHERE 1=1[0m
+  [4;36;1mComment Delete all (0.1ms)[0m   [0;1mDELETE FROM "comments" WHERE 1=1[0m
+  [4;35;1mNote Create (0.1ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-13 01:23:22', '2010-03-13 01:23:22', '3')[0m
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('3', '2010-03-13 01:23:22', 'First comment about One', '2010-03-13 01:23:22')[0m
+  [4;35;1mComment Create (0.1ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('3', '2010-03-13 01:23:22', 'Second comment about One', '2010-03-13 01:23:22')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;35;1mComment Load (0.6ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;36;1mNote Delete all (0.5ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.2ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-15 16:36:33', '2010-03-15 16:36:33', '1')[0m
+  [4;36;1mNote Delete all (0.3ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mComment Delete all (0.1ms)[0m   [0mDELETE FROM "comments" WHERE 1=1[0m
+  [4;36;1mNote Create (0.2ms)[0m   [0;1mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-15 16:36:33', '2010-03-15 16:36:33', '2')[0m
+  [4;35;1mComment Create (0.2ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('2', '2010-03-15 16:36:33', 'First comment about One', '2010-03-15 16:36:33')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '2') [0m
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '2') [0m
+  [4;36;1mNote Load (0.4ms)[0m   [0;1mSELECT * FROM "notes" WHERE ("notes"."id" = '2') [0m
+  [4;35;1mNote Delete all (0.2ms)[0m   [0mDELETE FROM "notes" WHERE 1=1[0m
+  [4;36;1mComment Delete all (0.1ms)[0m   [0;1mDELETE FROM "comments" WHERE 1=1[0m
+  [4;35;1mNote Create (0.1ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-15 16:36:33', '2010-03-15 16:36:33', '3')[0m
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('3', '2010-03-15 16:36:33', 'First comment about One', '2010-03-15 16:36:33')[0m
+  [4;35;1mComment Create (0.1ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('3', '2010-03-15 16:36:33', 'Second comment about One', '2010-03-15 16:36:33')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;35;1mComment Load (0.6ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;36;1mNote Delete all (0.4ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.2ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-16 23:46:31', '2010-03-16 23:46:31', '1')[0m
+  [4;36;1mNote Delete all (0.2ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mComment Delete all (0.1ms)[0m   [0mDELETE FROM "comments" WHERE 1=1[0m
+  [4;36;1mNote Create (0.1ms)[0m   [0;1mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-16 23:46:31', '2010-03-16 23:46:31', '2')[0m
+  [4;35;1mComment Create (0.2ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('2', '2010-03-16 23:46:31', 'First comment about One', '2010-03-16 23:46:31')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '2') [0m
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '2') [0m
+  [4;36;1mNote Load (0.4ms)[0m   [0;1mSELECT * FROM "notes" WHERE ("notes"."id" = '2') [0m
+  [4;35;1mNote Delete all (0.2ms)[0m   [0mDELETE FROM "notes" WHERE 1=1[0m
+  [4;36;1mComment Delete all (0.1ms)[0m   [0;1mDELETE FROM "comments" WHERE 1=1[0m
+  [4;35;1mNote Create (0.1ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-16 23:46:31', '2010-03-16 23:46:31', '3')[0m
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('3', '2010-03-16 23:46:31', 'First comment about One', '2010-03-16 23:46:31')[0m
+  [4;35;1mComment Create (0.3ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('3', '2010-03-16 23:46:31', 'Second comment about One', '2010-03-16 23:46:31')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;35;1mComment Load (0.7ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '3') [0m
