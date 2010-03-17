@@ -9,11 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100311202249) do
+ActiveRecord::Schema.define(:version => 20100316235110) do
 
   create_table "comments", :force => true do |t|
     t.string   "note_id"
     t.text     "details"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :id => false, :force => true do |t|
+    t.string   "id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
