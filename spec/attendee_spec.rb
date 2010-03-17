@@ -40,5 +40,4 @@ describe "Attendee class" do
       @event.attendees.should be_include(second_attendee)
     end
   end
-
 end

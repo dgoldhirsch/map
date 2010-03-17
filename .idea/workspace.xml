@@ -3,18 +3,12 @@
   <component name="ChangeListManager" verified="true">
     <list default="true" readonly="true" id="0b01f66f-b1e1-4188-981e-cf9fc75f28cf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/attendee_spec.rb" afterPath="$PROJECT_DIR$/spec/attendee_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/test.sqlite3" afterPath="$PROJECT_DIR$/db/test.sqlite3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20100317003244_create_users.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20100317002035_create_attendees.rb" afterPath="$PROJECT_DIR$/db/migrate/20100317002035_create_attendees.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/guid.rb" afterPath="$PROJECT_DIR$/lib/guid.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/map.rb" afterPath="$PROJECT_DIR$/map.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/attendee.rb" afterPath="$PROJECT_DIR$/app/models/attendee.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/test.log" afterPath="$PROJECT_DIR$/log/test.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/map.rb" afterPath="$PROJECT_DIR$/map.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/event.rb" afterPath="$PROJECT_DIR$/app/models/event.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/attendee.rb" afterPath="$PROJECT_DIR$/app/models/attendee.rb" />
     </list>
     <ignored path="map.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,28 +32,10 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="20100311192923_create_notes.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20100311192923_create_notes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="58" selection-end="170" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20100316235110_create_events.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20100316235110_create_events.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="24" selection-start="84" selection-end="124" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20100317002035_create_attendees.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="20100317002035_create_attendees.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/migrate/20100317002035_create_attendees.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="23" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
+            <state line="5" column="0" selection-start="155" selection-end="155" vertical-scroll-proportion="0.089686096">
               <folding />
             </state>
           </provider>
@@ -104,16 +80,34 @@
       <file leaf-file-name="attendee.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/attendee.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="16" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0">
+            <state line="3" column="18" selection-start="91" selection-end="91" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="attendee_spec.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="attendee_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/attendee_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="40" selection-start="1419" selection-end="1419" vertical-scroll-proportion="0.73846155">
+            <state line="41" column="5" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="guid_id.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/guid_id.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="4" selection-start="346" selection-end="346" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="guid.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/guid.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="38" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -138,7 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/environments/test.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20100311192923_create_notes.rb" />
         <option value="$PROJECT_DIR$/app/models/comment.rb" />
         <option value="$PROJECT_DIR$/spec/comment_spec.rb" />
@@ -148,12 +141,13 @@
         <option value="$PROJECT_DIR$/spec/note_spec.rb" />
         <option value="$PROJECT_DIR$/lib/tasks/guid_id.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20100317003244_create_users.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20100317002035_create_attendees.rb" />
         <option value="$PROJECT_DIR$/app/models/attendee.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/models/event.rb" />
         <option value="$PROJECT_DIR$/map.rb" />
         <option value="$PROJECT_DIR$/spec/attendee_spec.rb" />
+        <option value="$PROJECT_DIR$/lib/guid.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20100317002035_create_attendees.rb" />
       </list>
     </option>
   </component>
@@ -672,13 +666,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spec/event_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="105" selection-start="534" selection-end="534" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/comment.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="18" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0" />
@@ -705,13 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/guid_id.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="4" selection-start="346" selection-end="346" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20100311192923_create_notes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="0" selection-start="58" selection-end="170" vertical-scroll-proportion="0.0">
@@ -733,13 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20100317002035_create_attendees.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="23" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20100317003244_create_users.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="16" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0">
@@ -747,23 +720,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/attendee.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="16" selection-start="52" selection-end="52" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="16" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/event.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -777,7 +736,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/attendee_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="40" selection-start="1419" selection-end="1419" vertical-scroll-proportion="0.73846155">
+        <state line="41" column="5" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/guid_id.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="4" selection-start="346" selection-end="346" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/guid.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="38" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/event.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/attendee.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="18" selection-start="91" selection-end="91" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20100317002035_create_attendees.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="155" selection-end="155" vertical-scroll-proportion="0.089686096">
           <folding />
         </state>
       </provider>
