@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :attendees
+
   map.resources :events
 
   map.resources :comments

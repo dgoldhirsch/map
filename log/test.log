@@ -254,3 +254,131 @@
   [4;35;1mEvent Create (0.2ms)[0m   [0mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:14:23', '2010-03-17 00:14:23', '1')[0m
   [4;36;1mEvent Delete all (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
   [4;35;1mEvent Create (0.1ms)[0m   [0mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('Another', '2010-03-17 00:14:23', '2010-03-17 00:14:23', 'abc')[0m
+  [4;36;1mNote Delete all (0.5ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mComment Delete all (0.1ms)[0m   [0mDELETE FROM "comments" WHERE 1=1[0m
+  [4;36;1mNote Create (0.2ms)[0m   [0;1mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:16:15', '2010-03-17 00:16:15', '3')[0m
+  [4;35;1mComment Create (0.2ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('3', '2010-03-17 00:16:15', 'First comment about One', '2010-03-17 00:16:15')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;36;1mNote Load (0.4ms)[0m   [0;1mSELECT * FROM "notes" WHERE ("notes"."id" = '3') [0m
+  [4;35;1mNote Delete all (0.3ms)[0m   [0mDELETE FROM "notes" WHERE 1=1[0m
+  [4;36;1mComment Delete all (0.1ms)[0m   [0;1mDELETE FROM "comments" WHERE 1=1[0m
+  [4;35;1mNote Create (0.2ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:16:15', '2010-03-17 00:16:15', '4')[0m
+  [4;36;1mComment Create (0.4ms)[0m   [0;1mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('4', '2010-03-17 00:16:15', 'First comment about One', '2010-03-17 00:16:15')[0m
+  [4;35;1mComment Create (0.1ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('4', '2010-03-17 00:16:15', 'Second comment about One', '2010-03-17 00:16:15')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '4') [0m
+  [4;35;1mComment Load (0.7ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '4') [0m
+  [4;36;1mEvent Delete all (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
+  [4;35;1mEvent Create (0.2ms)[0m   [0mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:16:15', '2010-03-17 00:16:15', '1')[0m
+  [4;36;1mEvent Delete all (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
+  [4;35;1mEvent Create (0.1ms)[0m   [0mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('Another', '2010-03-17 00:16:15', '2010-03-17 00:16:15', 'abc')[0m
+  [4;36;1mNote Delete all (0.2ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.1ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:16:15', '2010-03-17 00:16:15', '1')[0m
+  [4;36;1mNote Delete all (0.2ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.1ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('Something', '2010-03-17 00:16:15', '2010-03-17 00:16:15', 'barf')[0m
+  [4;36;1mNote Delete all (0.5ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mComment Delete all (0.1ms)[0m   [0mDELETE FROM "comments" WHERE 1=1[0m
+  [4;36;1mNote Create (0.2ms)[0m   [0;1mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:29:13', '2010-03-17 00:29:13', '3')[0m
+  [4;35;1mComment Create (0.2ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('3', '2010-03-17 00:29:13', 'First comment about One', '2010-03-17 00:29:13')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;36;1mNote Load (0.4ms)[0m   [0;1mSELECT * FROM "notes" WHERE ("notes"."id" = '3') [0m
+  [4;35;1mNote Delete all (0.3ms)[0m   [0mDELETE FROM "notes" WHERE 1=1[0m
+  [4;36;1mComment Delete all (0.1ms)[0m   [0;1mDELETE FROM "comments" WHERE 1=1[0m
+  [4;35;1mNote Create (0.2ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:29:13', '2010-03-17 00:29:13', '4')[0m
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('4', '2010-03-17 00:29:13', 'First comment about One', '2010-03-17 00:29:13')[0m
+  [4;35;1mComment Create (0.1ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('4', '2010-03-17 00:29:13', 'Second comment about One', '2010-03-17 00:29:13')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '4') [0m
+  [4;35;1mComment Load (0.6ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '4') [0m
+  [4;36;1mEvent Delete all (0.3ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
+  [4;35;1mEvent Create (0.2ms)[0m   [0mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:29:13', '2010-03-17 00:29:13', '1')[0m
+  [4;36;1mEvent Delete all (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
+  [4;35;1mEvent Create (0.2ms)[0m   [0mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('Another', '2010-03-17 00:29:13', '2010-03-17 00:29:13', 'abc')[0m
+  [4;36;1mNote Delete all (0.2ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.2ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:29:13', '2010-03-17 00:29:13', '1')[0m
+  [4;36;1mNote Delete all (0.2ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.1ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('Something', '2010-03-17 00:29:13', '2010-03-17 00:29:13', 'barf')[0m
+  [4;36;1mEvent Delete all (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
+  [4;35;1mAttendee Delete all (0.1ms)[0m   [0mDELETE FROM "attendees" WHERE 1=1[0m
+  [4;36;1mEvent Create (0.2ms)[0m   [0;1mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:29:13', '2010-03-17 00:29:13', '1')[0m
+  [4;35;1mAttendee Create (0.2ms)[0m   [0mINSERT INTO "attendees" ("created_at", "event_id", "updated_at") VALUES('2010-03-17 00:29:13', '1', '2010-03-17 00:29:13')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "attendees" WHERE ("attendees".event_id = '1') [0m
+  [4;35;1mAttendee Load (0.4ms)[0m   [0mSELECT * FROM "attendees" WHERE ("attendees".event_id = '1') [0m
+  [4;36;1mEvent Delete all (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
+  [4;35;1mAttendee Delete all (0.1ms)[0m   [0mDELETE FROM "attendees" WHERE 1=1[0m
+  [4;36;1mEvent Create (0.1ms)[0m   [0;1mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:29:13', '2010-03-17 00:29:13', '2')[0m
+  [4;35;1mAttendee Create (0.3ms)[0m   [0mINSERT INTO "attendees" ("created_at", "event_id", "updated_at") VALUES('2010-03-17 00:29:13', '2', '2010-03-17 00:29:13')[0m
+  [4;36;1mAttendee Create (0.1ms)[0m   [0;1mINSERT INTO "attendees" ("created_at", "event_id", "updated_at") VALUES('2010-03-17 00:29:13', '2', '2010-03-17 00:29:13')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "attendees" WHERE ("attendees".event_id = '2') [0m
+  [4;36;1mAttendee Load (0.6ms)[0m   [0;1mSELECT * FROM "attendees" WHERE ("attendees".event_id = '2') [0m
+  [4;36;1mNote Delete all (0.5ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mComment Delete all (0.1ms)[0m   [0mDELETE FROM "comments" WHERE 1=1[0m
+  [4;36;1mNote Create (0.2ms)[0m   [0;1mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:29:41', '2010-03-17 00:29:41', '3')[0m
+  [4;35;1mComment Create (0.2ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('3', '2010-03-17 00:29:41', 'First comment about One', '2010-03-17 00:29:41')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;36;1mNote Load (0.4ms)[0m   [0;1mSELECT * FROM "notes" WHERE ("notes"."id" = '3') [0m
+  [4;35;1mNote Delete all (0.4ms)[0m   [0mDELETE FROM "notes" WHERE 1=1[0m
+  [4;36;1mComment Delete all (0.1ms)[0m   [0;1mDELETE FROM "comments" WHERE 1=1[0m
+  [4;35;1mNote Create (0.2ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:29:41', '2010-03-17 00:29:41', '4')[0m
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('4', '2010-03-17 00:29:41', 'First comment about One', '2010-03-17 00:29:41')[0m
+  [4;35;1mComment Create (0.1ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('4', '2010-03-17 00:29:41', 'Second comment about One', '2010-03-17 00:29:41')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '4') [0m
+  [4;35;1mComment Load (0.6ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '4') [0m
+  [4;36;1mEvent Delete all (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
+  [4;35;1mEvent Create (0.2ms)[0m   [0mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:29:41', '2010-03-17 00:29:41', '1')[0m
+  [4;36;1mEvent Delete all (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
+  [4;35;1mEvent Create (0.1ms)[0m   [0mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('Another', '2010-03-17 00:29:41', '2010-03-17 00:29:41', 'abc')[0m
+  [4;36;1mNote Delete all (0.2ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.1ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:29:41', '2010-03-17 00:29:41', '1')[0m
+  [4;36;1mNote Delete all (0.2ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.1ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('Something', '2010-03-17 00:29:41', '2010-03-17 00:29:41', 'barf')[0m
+  [4;36;1mEvent Delete all (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
+  [4;35;1mAttendee Delete all (0.1ms)[0m   [0mDELETE FROM "attendees" WHERE 1=1[0m
+  [4;36;1mEvent Create (0.2ms)[0m   [0;1mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:29:41', '2010-03-17 00:29:41', '1')[0m
+  [4;35;1mAttendee Create (0.2ms)[0m   [0mINSERT INTO "attendees" ("created_at", "event_id", "updated_at") VALUES('2010-03-17 00:29:41', '1', '2010-03-17 00:29:41')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "attendees" WHERE ("attendees".event_id = '1') [0m
+  [4;35;1mAttendee Load (0.4ms)[0m   [0mSELECT * FROM "attendees" WHERE ("attendees".event_id = '1') [0m
+  [4;36;1mEvent Delete all (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
+  [4;35;1mAttendee Delete all (0.1ms)[0m   [0mDELETE FROM "attendees" WHERE 1=1[0m
+  [4;36;1mEvent Create (0.2ms)[0m   [0;1mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:29:42', '2010-03-17 00:29:42', '2')[0m
+  [4;35;1mAttendee Create (0.2ms)[0m   [0mINSERT INTO "attendees" ("created_at", "event_id", "updated_at") VALUES('2010-03-17 00:29:42', '2', '2010-03-17 00:29:42')[0m
+  [4;36;1mAttendee Create (0.1ms)[0m   [0;1mINSERT INTO "attendees" ("created_at", "event_id", "updated_at") VALUES('2010-03-17 00:29:42', '2', '2010-03-17 00:29:42')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "attendees" WHERE ("attendees".event_id = '2') [0m
+  [4;36;1mAttendee Load (0.6ms)[0m   [0;1mSELECT * FROM "attendees" WHERE ("attendees".event_id = '2') [0m
+  [4;36;1mNote Delete all (0.5ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mComment Delete all (0.1ms)[0m   [0mDELETE FROM "comments" WHERE 1=1[0m
+  [4;36;1mNote Create (0.2ms)[0m   [0;1mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:30:38', '2010-03-17 00:30:38', '3')[0m
+  [4;35;1mComment Create (0.2ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('3', '2010-03-17 00:30:38', 'First comment about One', '2010-03-17 00:30:38')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;35;1mComment Load (0.4ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '3') [0m
+  [4;36;1mNote Load (0.4ms)[0m   [0;1mSELECT * FROM "notes" WHERE ("notes"."id" = '3') [0m
+  [4;35;1mNote Delete all (0.3ms)[0m   [0mDELETE FROM "notes" WHERE 1=1[0m
+  [4;36;1mComment Delete all (0.1ms)[0m   [0;1mDELETE FROM "comments" WHERE 1=1[0m
+  [4;35;1mNote Create (0.2ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:30:38', '2010-03-17 00:30:38', '4')[0m
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('4', '2010-03-17 00:30:38', 'First comment about One', '2010-03-17 00:30:38')[0m
+  [4;35;1mComment Create (0.1ms)[0m   [0mINSERT INTO "comments" ("note_id", "created_at", "details", "updated_at") VALUES('4', '2010-03-17 00:30:38', 'Second comment about One', '2010-03-17 00:30:38')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".note_id = '4') [0m
+  [4;35;1mComment Load (0.6ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".note_id = '4') [0m
+  [4;36;1mEvent Delete all (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
+  [4;35;1mEvent Create (0.2ms)[0m   [0mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:30:38', '2010-03-17 00:30:38', '1')[0m
+  [4;36;1mEvent Delete all (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
+  [4;35;1mEvent Create (0.1ms)[0m   [0mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('Another', '2010-03-17 00:30:38', '2010-03-17 00:30:38', 'abc')[0m
+  [4;36;1mNote Delete all (0.2ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.1ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:30:38', '2010-03-17 00:30:38', '1')[0m
+  [4;36;1mNote Delete all (0.2ms)[0m   [0;1mDELETE FROM "notes" WHERE 1=1[0m
+  [4;35;1mNote Create (0.1ms)[0m   [0mINSERT INTO "notes" ("name", "created_at", "updated_at", "id") VALUES('Something', '2010-03-17 00:30:38', '2010-03-17 00:30:38', 'barf')[0m
+  [4;36;1mEvent Delete all (0.2ms)[0m   [0;1mDELETE FROM "events" WHERE 1=1[0m
+  [4;35;1mAttendee Delete all (0.1ms)[0m   [0mDELETE FROM "attendees" WHERE 1=1[0m
+  [4;36;1mEvent Create (0.2ms)[0m   [0;1mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:30:38', '2010-03-17 00:30:38', '1')[0m
+  [4;35;1mAttendee Create (0.2ms)[0m   [0mINSERT INTO "attendees" ("created_at", "event_id", "updated_at") VALUES('2010-03-17 00:30:38', '1', '2010-03-17 00:30:38')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "attendees" WHERE ("attendees".event_id = '1') [0m
+  [4;35;1mAttendee Load (0.4ms)[0m   [0mSELECT * FROM "attendees" WHERE ("attendees".event_id = '1') [0m
+  [4;36;1mEvent Load (0.4ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = '1') [0m
+  [4;35;1mEvent Delete all (0.2ms)[0m   [0mDELETE FROM "events" WHERE 1=1[0m
+  [4;36;1mAttendee Delete all (0.1ms)[0m   [0;1mDELETE FROM "attendees" WHERE 1=1[0m
+  [4;35;1mEvent Create (0.2ms)[0m   [0mINSERT INTO "events" ("name", "created_at", "updated_at", "id") VALUES('One', '2010-03-17 00:30:38', '2010-03-17 00:30:38', '2')[0m
+  [4;36;1mAttendee Create (0.2ms)[0m   [0;1mINSERT INTO "attendees" ("created_at", "event_id", "updated_at") VALUES('2010-03-17 00:30:38', '2', '2010-03-17 00:30:38')[0m
+  [4;35;1mAttendee Create (0.1ms)[0m   [0mINSERT INTO "attendees" ("created_at", "event_id", "updated_at") VALUES('2010-03-17 00:30:38', '2', '2010-03-17 00:30:38')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "attendees" WHERE ("attendees".event_id = '2') [0m
+  [4;35;1mAttendee Load (0.6ms)[0m   [0mSELECT * FROM "attendees" WHERE ("attendees".event_id = '2') [0m

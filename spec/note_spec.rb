@@ -12,4 +12,11 @@ describe "Note model" do
     x.id.should be_is_a(String)
     x.id.should == "1"
   end
+
+  it "should let me change the id to a string, if I haven't yet saved the object" do
+    x = Note.new(:name => "Something")
+    x.id = "barf"
+    x.save
+    x.id.should == "barf"
+  end
 end
