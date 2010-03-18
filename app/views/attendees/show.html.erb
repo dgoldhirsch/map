@@ -1,3 +1,18 @@
+<p>
+  <b>Event:</b>
+  <%=h @attendee.event_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @attendee.user_id %>
+</p>
+
+<p>
+  <b>Is organizer:</b>
+  <%=h @attendee.is_organizer %>
+</p>
+
 
 <%= link_to 'Edit', edit_attendee_path(@attendee) %> |
 <%= link_to 'Back', attendees_path %>

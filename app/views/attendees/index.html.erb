@@ -2,10 +2,16 @@
 
 <table>
   <tr>
+    <th>Event</th>
+    <th>User</th>
+    <th>Is organizer</th>
   </tr>
 
 <% @attendees.each do |attendee| %>
   <tr>
+    <td><%=h attendee.event_id %></td>
+    <td><%=h attendee.user_id %></td>
+    <td><%=h attendee.is_organizer %></td>
     <td><%= link_to 'Show', attendee %></td>
     <td><%= link_to 'Edit', edit_attendee_path(attendee) %></td>
     <td><%= link_to 'Destroy', attendee, :confirm => 'Are you sure?', :method => :delete %></td>

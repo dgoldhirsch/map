@@ -4,6 +4,7 @@ class CreateAttendees < ActiveRecord::Migration
       t.string :id
       t.string :event_id
       t.string :user_id
+      t.boolean :is_organizer
       t.timestamps
     end
   end

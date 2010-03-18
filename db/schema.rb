@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20100317003244) do
     t.string   "id"
     t.string   "event_id"
     t.string   "user_id"
+    t.boolean  "is_organizer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

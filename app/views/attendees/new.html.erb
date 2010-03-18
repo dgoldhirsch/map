@@ -4,6 +4,18 @@
   <%= f.error_messages %>
 
   <p>
+    <%= f.label :event_id %><br />
+    <%= f.text_field :event_id %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :is_organizer %><br />
+    <%= f.check_box :is_organizer %>
+  </p>
+  <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>
