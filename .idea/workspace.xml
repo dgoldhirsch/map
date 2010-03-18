@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager" verified="true">
     <list default="true" readonly="true" id="0b01f66f-b1e1-4188-981e-cf9fc75f28cf" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/event_spec.rb" afterPath="$PROJECT_DIR$/spec/event_spec.rb" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/attendees/show.html.erb" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/features/support/env.rb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/test.sqlite3" afterPath="$PROJECT_DIR$/db/test.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tasks/cucumber.rake" afterPath="$PROJECT_DIR$/lib/tasks/cucumber.rake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20100317002035_create_attendees.rb" afterPath="$PROJECT_DIR$/db/migrate/20100317002035_create_attendees.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/features/support/paths.rb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
@@ -15,10 +14,9 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/attendees/edit.html.erb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/test.log" afterPath="$PROJECT_DIR$/log/test.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/attendees/index.html.erb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script/cucumber" afterPath="$PROJECT_DIR$/script/cucumber" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/event.rb" afterPath="$PROJECT_DIR$/app/models/event.rb" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/features/step_definitions/webrat_steps.rb" afterPath="" />
     </list>
     <ignored path="map.iws" />
@@ -52,10 +50,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/attendees/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="event.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/event.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="12" selection-start="117" selection-end="117" vertical-scroll-proportion="-1.8461539">
               <folding />
             </state>
           </provider>
@@ -106,28 +113,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="guid_id.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/guid_id.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="4" selection-start="346" selection-end="346" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="guid.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/guid.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="38" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="16" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0">
+            <state line="1" column="16" selection-start="48" selection-end="48" vertical-scroll-proportion="-0.46153846">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="event_spec.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spec/event_spec.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="14" selection-start="69" selection-end="166" vertical-scroll-proportion="0.07465008">
               <folding />
             </state>
           </provider>
@@ -146,19 +144,19 @@
         <option value="$PROJECT_DIR$/app/models/comment.rb" />
         <option value="$PROJECT_DIR$/spec/comment_spec.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20100316235110_create_events.rb" />
-        <option value="$PROJECT_DIR$/spec/event_spec.rb" />
         <option value="$PROJECT_DIR$/app/models/note.rb" />
         <option value="$PROJECT_DIR$/spec/note_spec.rb" />
         <option value="$PROJECT_DIR$/lib/tasks/guid_id.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20100317003244_create_users.rb" />
         <option value="$PROJECT_DIR$/app/models/attendee.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/app/models/event.rb" />
         <option value="$PROJECT_DIR$/map.rb" />
         <option value="$PROJECT_DIR$/spec/attendee_spec.rb" />
         <option value="$PROJECT_DIR$/lib/guid.rb" />
         <option value="$PROJECT_DIR$/config/environments/cucumber.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20100317002035_create_attendees.rb" />
+        <option value="$PROJECT_DIR$/app/models/event.rb" />
+        <option value="$PROJECT_DIR$/spec/event_spec.rb" />
       </list>
     </option>
   </component>
@@ -661,11 +659,11 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="RSpec.note_spec" />
-      <item index="1" class="java.lang.String" itemvalue="Rake.test" />
-      <item index="2" class="java.lang.String" itemvalue="Rake.spec" />
-      <item index="3" class="java.lang.String" itemvalue="Rails.Production: map" />
-      <item index="4" class="java.lang.String" itemvalue="Rails.Development: map" />
+      <item index="0" class="java.lang.String" itemvalue="Rake.test" />
+      <item index="1" class="java.lang.String" itemvalue="Rake.spec" />
+      <item index="2" class="java.lang.String" itemvalue="Rails.Production: map" />
+      <item index="3" class="java.lang.String" itemvalue="Rails.Development: map" />
+      <item index="4" class="java.lang.String" itemvalue="RSpec.note_spec" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -686,7 +684,7 @@
     <supportedVersion>125</supportedVersion>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="810" extended-state="0" />
+    <frame x="19" y="22" width="1440" height="810" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -745,11 +743,6 @@
         <state line="7" column="0" selection-start="95" selection-end="161" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/event.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/map.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="57" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" />
@@ -768,11 +761,6 @@
     <entry file="file://$PROJECT_DIR$/lib/guid.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="38" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="16" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
@@ -803,13 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/attendee.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="18" selection-start="91" selection-end="91" vertical-scroll-proportion="-1.3846154">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20100317002035_create_attendees.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="29" selection-start="208" selection-end="208" vertical-scroll-proportion="-2.7692308">
@@ -820,6 +801,34 @@
     <entry file="file://$PROJECT_DIR$/app/views/attendees/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/event.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="12" selection-start="117" selection-end="117" vertical-scroll-proportion="-1.8461539">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/attendee.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="18" selection-start="91" selection-end="91" vertical-scroll-proportion="-1.3846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="16" selection-start="48" selection-end="48" vertical-scroll-proportion="-0.46153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/event_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="14" selection-start="69" selection-end="166" vertical-scroll-proportion="0.07465008">
           <folding />
         </state>
       </provider>
