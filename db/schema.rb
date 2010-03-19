@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20100317003244) do
     t.datetime "updated_at"
   end
 
+  add_index "attendees", ["id"], :name => "index_attendees_on_id", :unique => true
+
   create_table "comments", :force => true do |t|
     t.string   "note_id"
     t.text     "details"
@@ -34,6 +36,8 @@ ActiveRecord::Schema.define(:version => 20100317003244) do
     t.datetime "updated_at"
   end
 
+  add_index "events", ["id"], :name => "index_events_on_id", :unique => true
+
   create_table "notes", :id => false, :force => true do |t|
     t.string   "id"
     t.string   "name"
@@ -41,11 +45,15 @@ ActiveRecord::Schema.define(:version => 20100317003244) do
     t.datetime "updated_at"
   end
 
+  add_index "notes", ["id"], :name => "index_notes_on_id", :unique => true
+
   create_table "users", :id => false, :force => true do |t|
     t.string   "id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["id"], :name => "index_users_on_id", :unique => true
 
 end

@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe "Event" do
   before(:each) do
+    User.delete_all
     Event.delete_all
     Guid.reset! 1 # next guid will be "1"
   end

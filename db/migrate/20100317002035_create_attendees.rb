@@ -7,6 +7,9 @@ class CreateAttendees < ActiveRecord::Migration
       t.boolean :is_organizer
       t.timestamps
     end
+    add_index :attendees, :id, :unique => true    
+    add_foreign_key(:attendees, :events)
+    add_foreign_key(:attendees, :users)
   end
 
   def self.down

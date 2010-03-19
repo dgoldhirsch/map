@@ -25,6 +25,12 @@ describe "Attendee class" do
     end
   end
 
+  context "Unique primary key" do
+    it "should not permit non-unique primary key" do
+      @second_attendee = Attendee.create!(:user => @bart, :event => @event, :id => @first_attendee.id)
+    end
+  end
+  
   context "Each Event has many Attendees" do
     it "should create an event with an attendee" do
       @event.should have(1).attendees
