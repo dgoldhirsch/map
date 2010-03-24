@@ -1,243 +1,58 @@
-== Welcome to Rails
+== MAP
 
-Rails is a web-application framework that includes everything needed to create 
-database-backed web applications according to the Model-View-Control pattern. 
+This is a moronic little application intended to teach me two things:  how to use GUIDs for ActiveRecord model objects, rather than the usual, generated integer IDs;  and, how to use has_many with the :through option.
 
-This pattern splits the view (also called the presentation) into "dumb" templates
-that are primarily responsible for inserting pre-built data in between HTML tags.
-The model contains the "smart" domain objects (such as Account, Product, Person,
-Post) that holds all the business logic and knows how to persist themselves to
-a database. The controller handles the incoming requests (such as Save New Account,
-Update Product, Show Post) by manipulating the model and directing data to the view.
+There are three model classes, and three corresponding controllers:
 
-In Rails, the model is handled by what's called an object-relational mapping
-layer entitled Active Record. This layer allows you to present the data from
-database rows as objects and embellish these data objects with business logic
-methods. You can read more about Active Record in
-link:files/vendor/rails/activerecord/README.html.
+Event -- as in, a to-do event or calendar event (except there ain't anything in it except a name)
+User -- as in a user of the system (but there is no authentication)
+Attendee -- a joining table mapping Users to Events.
 
-The controller and view are handled by the Action Pack, which handles both
-layers by its two parts: Action View and Action Controller. These two layers
-are bundled in a single package due to their heavy interdependence. This is
-unlike the relationship between the Active Record and Action Pack that is much
-more separate. Each of these packages can be used independently outside of
-Rails.  You can read more about Action Pack in
-link:files/vendor/rails/actionpack/README.html.
+This comes from recent work I did involving iCalendar data.  In the iCalendar parlance, users "attend" events.  In truth, there is no calendaring data in this little application.  Being of limited imagination, I simply named the model classes after iCalendar-like things.
 
+Every Event, User, and Attendee record has a unique GUID in its "id" column.  Why?  Because in my recent iCalendar/CalDAV investigations I found it useful for providing database-independent, unique keys for things such as Events that may live in several different databases and which must all refer to the same underlying, virtual "event."
 
-== Getting Started
+An Attendee record belongs to both an Event and a User, and has additional attributes characterizing the details about how that user is attending the event.
 
-1. At the command prompt, start a new Rails application using the <tt>rails</tt> command
-   and your application name. Ex: rails myapp
-2. Change directory into myapp and start the web server: <tt>script/server</tt> (run with --help for options)
-3. Go to http://localhost:3000/ and get "Welcome aboard: You're riding the Rails!"
-4. Follow the guidelines to start developing your application
+== To Use Map
 
+Start script/server and then visit the usual, RESTful controllers:
 
-== Web Servers
+	http://localhost:3000/Events
+	http://localhost:3000/Users
+	http://localhost:3000/Attendees
+	
+In the case of Attendees, you must supply the GUID of a given Event and User.  Go ahead--try it with some wacky string GUID that doesn't exist in the Events or Users table.  You won't be prevented from doing this, and it will screw up the app.  (See below for how/why you are allowed to screw up the app this way.)
 
-By default, Rails will try to use Mongrel if it's are installed when started with script/server, otherwise Rails will use WEBrick, the webserver that ships with Ruby. But you can also use Rails
-with a variety of other web servers.
+== What I Learned About GUIDs in the "id" Column of a Model
 
-Mongrel is a Ruby-based webserver with a C component (which requires compilation) that is
-suitable for development and deployment of Rails applications. If you have Ruby Gems installed,
-getting up and running with mongrel is as easy as: <tt>gem install mongrel</tt>.
-More info at: http://mongrel.rubyforge.org
+Several blogs recommended overriding or making use of ActiveRecord::Base::before_create, slamming a generated GUID into the id column.  That turns out to be not quite right.  First of all, overriding before_create (or any of the other callback methods) is wrong because you will lose the effect of any other before_create callback processing you might need for that model.  And, your overriding def of before_create will NOT be invoked in any subclasses of the model.
 
-Say other Ruby web servers like Thin and Ebb or regular web servers like Apache or LiteSpeed or
-Lighttpd or IIS. The Ruby web servers are run through Rack and the latter can either be setup to use
-FCGI or proxy to a pack of Mongrels/Thin/Ebb servers.
+The correct solution is to use the before_create macro to add a callback method or block to the chain of existing callbacks for before-create.
 
-== Apache .htaccess example for FCGI/CGI
+And, probably, it is better to create the Guid in the before_validation_on_create rather than before_create;  because, after all, you will want the GUID safely installed in the "id" column before your validation hook is called.
 
-# General Apache options
-AddHandler fastcgi-script .fcgi
-AddHandler cgi-script .cgi
-Options +FollowSymLinks +ExecCGI
+Also:  don't just slam a new, unique GUID into the ID column.  Do so only of the ID column is nil.  This allows you to create objects with a given GUID value, something you'll want to do when mocking/testing.
 
-# If you don't want Rails to look in certain directories,
-# use the following rewrite rules so that Apache won't rewrite certain requests
-# 
-# Example:
-#   RewriteCond %{REQUEST_URI} ^/notrails.*
-#   RewriteRule .* - [L]
+You will have to redefine the column type of "id" to be whatever type you want for your GUID values.  I used a string, for maximum flexibility.  You can do this by disabling the typical, generated "id" column and instead declaring an "id" column explicitly, in the migration.
 
-# Redirect all requests not available on the filesystem to Rails
-# By default the cgi dispatcher is used which is very slow
-# 
-# For better performance replace the dispatcher with the fastcgi one
-#
-# Example:
-#   RewriteRule ^(.*)$ dispatch.fcgi [QSA,L]
-RewriteEngine On
+Finally, because the "id" column is now declared explicitly, I had to specify explicitly that it should be indexed.  One can only hope that the database system is smart enough to realize that this should be a PRIMARY INDEX (that is, the sorting basis of the records) rather than a SECONDARY INDEX (taking up much more space).  There are probably options for this that I am unaware of (yet).
 
-# If your Rails application is accessed via an Alias directive,
-# then you MUST also set the RewriteBase in this htaccess file.
-#
-# Example:
-#   Alias /myrailsapp /path/to/myrailsapp/public
-#   RewriteBase /myrailsapp
+== What I Learned About Foreign Keys in ActiveRecord
 
-RewriteRule ^$ index.html [QSA]
-RewriteRule ^([^.]+)$ $1.html [QSA]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ dispatch.cgi [QSA,L]
+Basically, I learned that AR doesn't provide foreign key constraints.  Apparently, the Agile Web Development in Rails book shows how to do it using some hard-coded SQL that fits somewhere in the migration.  But, a good friend of mine steered me instead to a gem called Foreigner that extends the migration DSL with enough foreign-key stuff for my simple application.
 
-# In case Rails experiences terminal errors
-# Instead of displaying this message you can supply a file here which will be rendered instead
-# 
-# Example:
-#   ErrorDocument 500 /500.html
+It wasn't obvious (to me) how to test whether the foreign key constraints were working--or, more charitably, that I was using Foreigner correctly.  The best I could find was a blog post suggesting querying the metadata from the database and verifying that the FK constraints are in place.  That would have been OK, except for something I learned about SQLLite...
 
-ErrorDocument 500 "<h2>Application error</h2>Rails application failed to start properly"
+== What I Learned About Foreign Keys in SQLLite
 
+So, how/why are you able to create an Attendee with bogus Event and/or User GUIDs?  Because (as I found out) although SQLLite allows the declaration of foreign key constraints, it ignores them.
 
-== Debugging Rails
+== What I Learned About Database-Centric Development
 
-Sometimes your application goes wrong.  Fortunately there are a lot of tools that
-will help you debug it and get it back on the rails.
+I'm not a database-centric developer by training or by inclination.  I was taught to think in object-oriented terms, and then to construct an appropriate persistence layer to support the needs of the application.  (Apparently, this terrifies many people.)  But, Rails is by definition a database-centric platform and if one follows "The Golden Path" one begins by defining (database) models.  What I (re)learned was that there is an enormous, up-front cost to this kind of thinking, in terms of Test-Driven Development.  There are all the minute but telling issues such as whether deleting an Event can or should delete its Attendees (probably it should) or the Users defined through those Attendees (probably it should not).  There is the question of whether the foreign key stuff implemented by Foreigner is really working (or, more charitably, that I am using it properly)--and, this turns out to be not so easy to test, because the Rails models themselves enforce foreign-key-like constraints.  So, how to test this except (as one one blog suggested) by querying the database metadata for the presence of the FK constraints?
 
-First area to check is the application log files.  Have "tail -f" commands running
-on the server.log and development.log. Rails will automatically display debugging
-and runtime information to these files. Debugging info will also be shown in the
-browser on requests from 127.0.0.1.
+All of this would seem to add up to a heavy burden of test coverage, just to ensure that the database structures behave properly as database structures.  This is before even thinking about business logic functionality and its testing.
 
-You can also log your own messages directly into the log file from your code using
-the Ruby logger class from inside your controllers. Example:
+I'm too new to The Rails Way to say Yea or Nay about this.  I simply note it, for now.  If I hadn't forced myself to write some real ActiveRecord models with has_many and belongs_to associations, I wouldn't have remembered just how fussy it is to administer the consistency of relational data.
 
-  class WeblogController < ActionController::Base
-    def destroy
-      @weblog = Weblog.find(params[:id])
-      @weblog.destroy
-      logger.info("#{Time.now} Destroyed Weblog ID ##{@weblog.id}!")
-    end
-  end
-
-The result will be a message in your log file along the lines of:
-
-  Mon Oct 08 14:22:29 +1000 2007 Destroyed Weblog ID #1
-
-More information on how to use the logger is at http://www.ruby-doc.org/core/
-
-Also, Ruby documentation can be found at http://www.ruby-lang.org/ including:
-
-* The Learning Ruby (Pickaxe) Book: http://www.ruby-doc.org/docs/ProgrammingRuby/
-* Learn to Program: http://pine.fm/LearnToProgram/  (a beginners guide)
-
-These two online (and free) books will bring you up to speed on the Ruby language
-and also on programming in general.
-
-
-== Debugger
-
-Debugger support is available through the debugger command when you start your Mongrel or
-Webrick server with --debugger. This means that you can break out of execution at any point
-in the code, investigate and change the model, AND then resume execution! 
-You need to install ruby-debug to run the server in debugging mode. With gems, use 'gem install ruby-debug'
-Example:
-
-  class WeblogController < ActionController::Base
-    def index
-      @posts = Post.find(:all)
-      debugger
-    end
-  end
-
-So the controller will accept the action, run the first line, then present you
-with a IRB prompt in the server window. Here you can do things like:
-
-  >> @posts.inspect
-  => "[#<Post:0x14a6be8 @attributes={\"title\"=>nil, \"body\"=>nil, \"id\"=>\"1\"}>,
-       #<Post:0x14a6620 @attributes={\"title\"=>\"Rails you know!\", \"body\"=>\"Only ten..\", \"id\"=>\"2\"}>]"
-  >> @posts.first.title = "hello from a debugger"
-  => "hello from a debugger"
-
-...and even better is that you can examine how your runtime objects actually work:
-
-  >> f = @posts.first
-  => #<Post:0x13630c4 @attributes={"title"=>nil, "body"=>nil, "id"=>"1"}>
-  >> f.
-  Display all 152 possibilities? (y or n)
-
-Finally, when you're ready to resume execution, you enter "cont"
-
-
-== Console
-
-You can interact with the domain model by starting the console through <tt>script/console</tt>.
-Here you'll have all parts of the application configured, just like it is when the
-application is running. You can inspect domain models, change values, and save to the
-database. Starting the script without arguments will launch it in the development environment.
-Passing an argument will specify a different environment, like <tt>script/console production</tt>.
-
-To reload your controllers and models after launching the console run <tt>reload!</tt>
-
-== dbconsole
-
-You can go to the command line of your database directly through <tt>script/dbconsole</tt>.
-You would be connected to the database with the credentials defined in database.yml.
-Starting the script without arguments will connect you to the development database. Passing an
-argument will connect you to a different database, like <tt>script/dbconsole production</tt>.
-Currently works for mysql, postgresql and sqlite.
-
-== Description of Contents
-
-app
-  Holds all the code that's specific to this particular application.
-
-app/controllers
-  Holds controllers that should be named like weblogs_controller.rb for
-  automated URL mapping. All controllers should descend from ApplicationController
-  which itself descends from ActionController::Base.
-
-app/models
-  Holds models that should be named like post.rb.
-  Most models will descend from ActiveRecord::Base.
-
-app/views
-  Holds the template files for the view that should be named like
-  weblogs/index.html.erb for the WeblogsController#index action. All views use eRuby
-  syntax.
-
-app/views/layouts
-  Holds the template files for layouts to be used with views. This models the common
-  header/footer method of wrapping views. In your views, define a layout using the
-  <tt>layout :default</tt> and create a file named default.html.erb. Inside default.html.erb,
-  call <% yield %> to render the view using this layout.
-
-app/helpers
-  Holds view helpers that should be named like weblogs_helper.rb. These are generated
-  for you automatically when using script/generate for controllers. Helpers can be used to
-  wrap functionality for your views into methods.
-
-config
-  Configuration files for the Rails environment, the routing map, the database, and other dependencies.
-
-db
-  Contains the database schema in schema.rb.  db/migrate contains all
-  the sequence of Migrations for your schema.
-
-doc
-  This directory is where your application documentation will be stored when generated
-  using <tt>rake doc:app</tt>
-
-lib
-  Application specific libraries. Basically, any kind of custom code that doesn't
-  belong under controllers, models, or helpers. This directory is in the load path.
-
-public
-  The directory available for the web server. Contains subdirectories for images, stylesheets,
-  and javascripts. Also contains the dispatchers and the default HTML files. This should be
-  set as the DOCUMENT_ROOT of your web server.
-
-script
-  Helper scripts for automation and generation.
-
-test
-  Unit and functional tests along with fixtures. When using the script/generate scripts, template
-  test files will be generated for you and placed in this directory.
-
-vendor
-  External libraries that the application depends on. Also includes the plugins subdirectory.
-  If the app has frozen rails, those gems also go here, under vendor/rails/.
-  This directory is in the load path.
