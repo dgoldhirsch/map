@@ -56,7 +56,7 @@
     </tr>
     <tr class="top-aligned-row">
       <td><strong>Last Update:</strong></td>
-      <td>Tue Mar 23 23:13:05 -0400 2010</td>
+      <td>Tue Mar 23 23:24:41 -0400 2010</td>
     </tr>
     </table>
   </div>
@@ -188,9 +188,10 @@ href="../../classes/Attendee.html">Attendee</a> with bogus <a
 href="../../classes/Event.html">Event</a> and/or <a
 href="../../classes/User.html">User</a> GUIDs? Because (as I found out)
 although SQLLite allows the declaration of foreign key constraints, it
-ignores them.
+ignores them. So, I guess I shouldn&#8216;t bother writing tests for this,
+eh? Or, I should move to a &quot;real&quot; DBMS.
 </p>
-<h2>What I Learned About Database-Centric Development</h2>
+<h2>What I Learned/Remembered About Database-Centric Development</h2>
 <p>
 I&#8216;m not a database-centric developer by training or by inclination. I
 was taught to think in object-oriented terms, and then to construct an
@@ -217,11 +218,9 @@ structures. This is before even thinking about business logic functionality
 and its testing.
 </p>
 <p>
-I&#8216;m too new to The Rails Way to say Yea or Nay about this. I simply
-note it, for now. If I hadn&#8216;t forced myself to write some real
-ActiveRecord models with has_many and belongs_to associations, I
-wouldn&#8216;t have remembered just how fussy it is to administer the
-consistency of relational data.
+If I hadn&#8216;t forced myself to write some real ActiveRecord models with
+has_many and belongs_to associations, I wouldn&#8216;t have remembered just
+how fussy it is to administer the consistency of relational data. Blah!
 </p>
 
     </div>

@@ -46,13 +46,13 @@ It wasn't obvious (to me) how to test whether the foreign key constraints were w
 
 == What I Learned About Foreign Keys in SQLLite
 
-So, how/why are you able to create an Attendee with bogus Event and/or User GUIDs?  Because (as I found out) although SQLLite allows the declaration of foreign key constraints, it ignores them.
+So, how/why are you able to create an Attendee with bogus Event and/or User GUIDs?  Because (as I found out) although SQLLite allows the declaration of foreign key constraints, it ignores them.  So, I guess I shouldn't bother writing tests for this, eh?  Or, I should move to a "real" DBMS.
 
-== What I Learned About Database-Centric Development
+== What I Learned/Remembered About Database-Centric Development
 
 I'm not a database-centric developer by training or by inclination.  I was taught to think in object-oriented terms, and then to construct an appropriate persistence layer to support the needs of the application.  (Apparently, this terrifies many people.)  But, Rails is by definition a database-centric platform and if one follows "The Golden Path" one begins by defining (database) models.  What I (re)learned was that there is an enormous, up-front cost to this kind of thinking, in terms of Test-Driven Development.  There are all the minute but telling issues such as whether deleting an Event can or should delete its Attendees (probably it should) or the Users defined through those Attendees (probably it should not).  There is the question of whether the foreign key stuff implemented by Foreigner is really working (or, more charitably, that I am using it properly)--and, this turns out to be not so easy to test, because the Rails models themselves enforce foreign-key-like constraints.  So, how to test this except (as one one blog suggested) by querying the database metadata for the presence of the FK constraints?
 
 All of this would seem to add up to a heavy burden of test coverage, just to ensure that the database structures behave properly as database structures.  This is before even thinking about business logic functionality and its testing.
 
-I'm too new to The Rails Way to say Yea or Nay about this.  I simply note it, for now.  If I hadn't forced myself to write some real ActiveRecord models with has_many and belongs_to associations, I wouldn't have remembered just how fussy it is to administer the consistency of relational data.
+If I hadn't forced myself to write some real ActiveRecord models with has_many and belongs_to associations, I wouldn't have remembered just how fussy it is to administer the consistency of relational data.  Blah!
 
