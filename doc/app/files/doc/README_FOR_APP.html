@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README_FOR_APP</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README_FOR_APP</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>doc/README_FOR_APP
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Tue Mar 23 23:13:05 -0400 2010</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>MAP</h2>
+<p>
+This is a moronic little application intended to teach me two things: how
+to use GUIDs for ActiveRecord model objects, rather than the usual,
+generated integer IDs; and, how to use has_many with the :through option.
+</p>
+<p>
+There are three model classes, and three corresponding controllers:
+</p>
+<p>
+<a href="../../classes/Event.html">Event</a> &#8212; as in, a to-do event
+or calendar event (except there ain&#8216;t anything in it except a name)
+<a href="../../classes/User.html">User</a> &#8212; as in a user of the
+system (but there is no authentication) <a
+href="../../classes/Attendee.html">Attendee</a> &#8212; a joining table
+mapping Users to Events.
+</p>
+<p>
+This comes from recent work I did involving iCalendar data. In the
+iCalendar parlance, users &quot;attend&quot; events. In truth, there is no
+calendaring data in this little application. Being of limited imagination,
+I simply named the model classes after iCalendar-like things.
+</p>
+<p>
+Every <a href="../../classes/Event.html">Event</a>, <a
+href="../../classes/User.html">User</a>, and <a
+href="../../classes/Attendee.html">Attendee</a> record has a unique GUID in
+its &quot;id&quot; column. Why? Because in my recent iCalendar/CalDAV
+investigations I found it useful for providing database-independent, unique
+keys for things such as Events that may live in several different databases
+and which must all refer to the same underlying, virtual &quot;event.&quot;
+</p>
+<p>
+An <a href="../../classes/Attendee.html">Attendee</a> record belongs to
+both an <a href="../../classes/Event.html">Event</a> and a <a
+href="../../classes/User.html">User</a>, and has additional attributes
+characterizing the details about how that user is attending the event.
+</p>
+<h2>To Use Map</h2>
+<p>
+Start script/server and then visit the usual, RESTful controllers:
+</p>
+<pre>
+        http://localhost:3000/Events
+        http://localhost:3000/Users
+        http://localhost:3000/Attendees
+</pre>
+<p>
+In the case of Attendees, you must supply the GUID of a given <a
+href="../../classes/Event.html">Event</a> and <a
+href="../../classes/User.html">User</a>. Go ahead&#8212;try it with some
+wacky string GUID that doesn&#8216;t exist in the Events or Users table.
+You won&#8216;t be prevented from doing this, and it will screw up the app.
+(See below for how/why you are allowed to screw up the app this way.)
+</p>
+<h2>What I Learned About GUIDs in the &quot;id&quot; Column of a Model</h2>
+<p>
+Several blogs recommended overriding or making use of
+ActiveRecord::Base::before_create, slamming a generated GUID into the id
+column. That turns out to be not quite right. First of all, overriding
+before_create (or any of the other callback methods) is wrong because you
+will lose the effect of any other before_create callback processing you
+might need for that model. And, your overriding def of before_create will
+NOT be invoked in any subclasses of the model.
+</p>
+<p>
+The correct solution is to use the before_create macro to add a callback
+method or block to the chain of existing callbacks for before-create.
+</p>
+<p>
+And, probably, it is better to create the <a
+href="../../classes/Guid.html">Guid</a> in the before_validation_on_create
+rather than before_create; because, after all, you will want the GUID
+safely installed in the &quot;id&quot; column before your validation hook
+is called.
+</p>
+<p>
+Also: don&#8216;t just slam a new, unique GUID into the ID column. Do so
+only of the ID column is nil. This allows you to create objects with a
+given GUID value, something you&#8216;ll want to do when mocking/testing.
+</p>
+<p>
+You will have to redefine the column type of &quot;id&quot; to be whatever
+type you want for your GUID values. I used a string, for maximum
+flexibility. You can do this by disabling the typical, generated
+&quot;id&quot; column and instead declaring an &quot;id&quot; column
+explicitly, in the migration.
+</p>
+<p>
+Finally, because the &quot;id&quot; column is now declared explicitly, I
+had to specify explicitly that it should be indexed. One can only hope that
+the database system is smart enough to realize that this should be a
+PRIMARY INDEX (that is, the sorting basis of the records) rather than a
+SECONDARY INDEX (taking up much more space). There are probably options for
+this that I am unaware of (yet).
+</p>
+<h2>What I Learned About Foreign Keys in ActiveRecord</h2>
+<p>
+Basically, I learned that AR doesn&#8216;t provide foreign key constraints.
+Apparently, the Agile Web Development in Rails book shows how to do it
+using some hard-coded SQL that fits somewhere in the migration. But, a good
+friend of mine steered me instead to a gem called Foreigner that extends
+the migration DSL with enough foreign-key stuff for my simple application.
+</p>
+<p>
+It wasn&#8216;t obvious (to me) how to test whether the foreign key
+constraints were working&#8212;or, more charitably, that I was using
+Foreigner correctly. The best I could find was a blog post suggesting
+querying the metadata from the database and verifying that the FK
+constraints are in place. That would have been OK, except for something I
+learned about SQLLite&#8230;
+</p>
+<h2>What I Learned About Foreign Keys in SQLLite</h2>
+<p>
+So, how/why are you able to create an <a
+href="../../classes/Attendee.html">Attendee</a> with bogus <a
+href="../../classes/Event.html">Event</a> and/or <a
+href="../../classes/User.html">User</a> GUIDs? Because (as I found out)
+although SQLLite allows the declaration of foreign key constraints, it
+ignores them.
+</p>
+<h2>What I Learned About Database-Centric Development</h2>
+<p>
+I&#8216;m not a database-centric developer by training or by inclination. I
+was taught to think in object-oriented terms, and then to construct an
+appropriate persistence layer to support the needs of the application.
+(Apparently, this terrifies many people.) But, Rails is by definition a
+database-centric platform and if one follows &quot;The Golden Path&quot;
+one begins by defining (database) models. What I (re)learned was that there
+is an enormous, up-front cost to this kind of thinking, in terms of
+Test-Driven Development. There are all the minute but telling issues such
+as whether deleting an <a href="../../classes/Event.html">Event</a> can or
+should delete its Attendees (probably it should) or the Users defined
+through those Attendees (probably it should not). There is the question of
+whether the foreign key stuff implemented by Foreigner is really working
+(or, more charitably, that I am using it properly)&#8212;and, this turns
+out to be not so easy to test, because the Rails models themselves enforce
+foreign-key-like constraints. So, how to test this except (as one one blog
+suggested) by querying the database metadata for the presence of the FK
+constraints?
+</p>
+<p>
+All of this would seem to add up to a heavy burden of test coverage, just
+to ensure that the database structures behave properly as database
+structures. This is before even thinking about business logic functionality
+and its testing.
+</p>
+<p>
+I&#8216;m too new to The Rails Way to say Yea or Nay about this. I simply
+note it, for now. If I hadn&#8216;t forced myself to write some real
+ActiveRecord models with has_many and belongs_to associations, I
+wouldn&#8216;t have remembered just how fussy it is to administer the
+consistency of relational data.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
