@@ -1,14 +1,11 @@
 == MAP
 
-This is a moronic little application intended to teach me two things:  how to use GUIDs for ActiveRecord model objects, rather than the usual, generated integer IDs;  and, how to use has_many with the :through option.
-
+This is a moronic little application to teach me how to use GUIDs as ActiveRecord ids.
 There are three model classes, and three corresponding controllers:
 
 Event -- as in, a to-do event or calendar event (except there ain't anything in it except a name)
 User -- as in a user of the system (but there is no authentication)
 Attendee -- a joining table mapping Users to Events.
-
-This comes from recent work I did involving iCalendar data.  In the iCalendar parlance, users "attend" events.  In truth, there is no calendaring data in this little application.  Being of limited imagination, I simply named the model classes after iCalendar-like things.
 
 Every Event, User, and Attendee record has a unique GUID in its "id" column.  Why?  Because in my recent iCalendar/CalDAV investigations I found it useful for providing database-independent, unique keys for things such as Events that may live in several different databases and which must all refer to the same underlying, virtual "event."
 
@@ -47,12 +44,4 @@ It wasn't obvious (to me) how to test whether the foreign key constraints were w
 == What I Learned About Foreign Keys in SQLLite
 
 So, how/why are you able to create an Attendee with bogus Event and/or User GUIDs?  Because (as I found out) although SQLLite allows the declaration of foreign key constraints, it ignores them.  So, I guess I shouldn't bother writing tests for this, eh?  Or, I should move to a "real" DBMS.
-
-== What I Learned/Remembered About Database-Centric Development
-
-I'm not a database-centric developer by training or by inclination.  I was taught to think in object-oriented terms, and then to construct an appropriate persistence layer to support the needs of the application.  (Apparently, this terrifies many people.)  But, Rails is by definition a database-centric platform and if one follows "The Golden Path" one begins by defining (database) models.  What I (re)learned was that there is an enormous, up-front cost to this kind of thinking, in terms of Test-Driven Development.  There are all the minute but telling issues such as whether deleting an Event can or should delete its Attendees (probably it should) or the Users defined through those Attendees (probably it should not).  There is the question of whether the foreign key stuff implemented by Foreigner is really working (or, more charitably, that I am using it properly)--and, this turns out to be not so easy to test, because the Rails models themselves enforce foreign-key-like constraints.  So, how to test this except (as one one blog suggested) by querying the database metadata for the presence of the FK constraints?
-
-All of this would seem to add up to a heavy burden of test coverage, just to ensure that the database structures behave properly as database structures.  This is before even thinking about business logic functionality and its testing.
-
-If I hadn't forced myself to write some real ActiveRecord models with has_many and belongs_to associations, I wouldn't have remembered just how fussy it is to administer the consistency of relational data.  Blah!
 
